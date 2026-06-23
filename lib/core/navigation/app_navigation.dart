@@ -1,11 +1,9 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:life_manager_pro/core/constants/app_colors.dart';
 import 'package:life_manager_pro/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:life_manager_pro/modules/tasks/screens/task_screen.dart';
 import 'package:life_manager_pro/modules/health/screens/health_screen.dart';
+import 'package:life_manager_pro/modules/habits/screens/habit_screen.dart';
 
 class AppNavigation extends ConsumerStatefulWidget {
   const AppNavigation({super.key});
@@ -20,9 +18,9 @@ class _AppNavigationState extends ConsumerState<AppNavigation> {
   final List<Widget> _screens = const [
     DashboardScreen(),
     TaskScreen(),
-    HealthScreen(), // Now added!
+    HealthScreen(),
+    HabitScreen(), // Now added!
     // JournalScreen(), // Will add later
-    // MoreScreen(), // Will add later
   ];
 
   @override
@@ -53,14 +51,14 @@ class _AppNavigationState extends ConsumerState<AppNavigation> {
             label: 'Health',
           ),
           NavigationDestination(
+            icon: Icon(Icons.check_circle_outline),
+            selectedIcon: Icon(Icons.check_circle),
+            label: 'Habits',
+          ),
+          NavigationDestination(
             icon: Icon(Icons.book_outlined),
             selectedIcon: Icon(Icons.book),
             label: 'Journal',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.more_horiz),
-            selectedIcon: Icon(Icons.more),
-            label: 'More',
           ),
         ],
       ),
